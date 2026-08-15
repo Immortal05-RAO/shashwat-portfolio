@@ -1,20 +1,20 @@
 import React from 'react';
-import { FadeIn } from './FadeIn';
 import { AnimatedText } from './AnimatedText';
 import { ContactButton } from './ContactButton';
+import { FadeIn } from './FadeIn';
+import { usePortfolio } from '../context/PortfolioContext';
 
 interface AboutSectionProps {
   onOpenContact: () => void;
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => {
-  const bioText = "I’m Shashwat V Rao, a Computer Science and Engineering student specializing in AI & Machine Learning. I build AI-powered products, automation systems, SaaS platforms, and high-performance web experiences. I enjoy taking ideas from concept to a working product—from architecture and backend systems to polished frontend experiences. Let's build something incredible together!";
+  const { data } = usePortfolio();
 
   return (
     <section id="about" className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 sm:py-24 overflow-hidden">
       
       {/* 4 DECORATIVE 3D FLOATING CORNER ICONS */}
-      {/* Top-Left: Moon Icon */}
       <div className="absolute top-[2%] left-[1%] sm:left-[2%] md:left-[4%] z-10 pointer-events-none">
         <FadeIn delay={0.1} x={-40} y={0} duration={0.9}>
           <img
@@ -25,7 +25,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         </FadeIn>
       </div>
 
-      {/* Bottom-Left: 3D Object */}
       <div className="absolute bottom-[4%] left-[2%] sm:left-[6%] md:left-[10%] z-10 pointer-events-none">
         <FadeIn delay={0.25} x={-40} y={0} duration={0.9}>
           <img
@@ -37,7 +36,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         </FadeIn>
       </div>
 
-      {/* Top-Right: Lego Icon */}
       <div className="absolute top-[2%] right-[1%] sm:right-[2%] md:right-[4%] z-10 pointer-events-none">
         <FadeIn delay={0.15} x={40} y={0} duration={0.9}>
           <img
@@ -49,7 +47,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         </FadeIn>
       </div>
 
-      {/* Bottom-Right: 3D Group */}
       <div className="absolute bottom-[4%] right-[2%] sm:right-[6%] md:right-[10%] z-10 pointer-events-none">
         <FadeIn delay={0.3} x={40} y={0} duration={0.9}>
           <img
@@ -76,7 +73,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenContact }) => 
         {/* Character-by-character Scroll Opacity Animated Text */}
         <div className="mb-14 sm:mb-20 md:mb-24 max-w-[640px]">
           <AnimatedText
-            text={bioText}
+            text={data.about.bioText}
             className="text-[#D7E2EA] font-medium leading-relaxed"
           />
         </div>

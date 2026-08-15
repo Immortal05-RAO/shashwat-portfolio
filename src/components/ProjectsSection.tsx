@@ -3,98 +3,17 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn } from './FadeIn';
 import { LiveProjectButton } from './LiveProjectButton';
 import { Zap, Bot, ChevronDown, ChevronUp } from 'lucide-react';
-import { createStandardPlaceholder } from '../utils/placeholders';
+import { usePortfolio } from '../context/PortfolioContext';
+import type { ProjectItem } from '../types/portfolio';
 
-export interface ProjectData {
-  id: string;
-  number: string;
-  category: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  highlights: string[];
-  techStack: string[];
-  col1Img1: string;
-  col1Img2: string;
-  col2Img: string;
-  liveUrl?: string;
-  githubUrl?: string;
-}
-
-const FEATURED_PROJECTS: ProjectData[] = [
-  {
-    id: 'flowchain',
-    number: '01',
-    category: 'AI & Automation Agency',
-    title: 'Flowchain Agency',
-    subtitle: 'Co-Founded by Shashwat V Rao & Dev U',
-    description: 'An AI, automation, web development, and digital systems agency building custom AI agents, business process automation, and high-performance digital architecture for enterprises.',
-    highlights: ['Business Process Automation', 'Custom AI Agents', 'Web Systems Architecture', 'Enterprise Integration'],
-    techStack: ['n8n', 'AI APIs', 'Node.js', 'React', 'Automation Pipelines'],
-    col1Img1: createStandardPlaceholder('FLOWCHAIN AGENT PIPELINE'),
-    col1Img2: createStandardPlaceholder('ENTERPRISE INTEGRATION LAYER'),
-    col2Img: createStandardPlaceholder('FLOWCHAIN AGENCY PLATFORM'),
-    liveUrl: 'https://flowchain.agency'
-  },
-  {
-    id: 'ai-shopping',
-    number: '02',
-    category: 'AI SaaS / E-Commerce Intelligence',
-    title: 'AI Shopping Intelligence',
-    subtitle: 'Shopify Intent Detection & Scoring Engine',
-    description: 'An AI-powered system designed to analyze shopping intent and customer behavior in real-time with idempotent data processing, scoring algorithms, and seamless Shopify API aggregation layers.',
-    highlights: ['Shopping-Intent Detection', 'Idempotent Data Processing', 'Real-time Scoring Systems', 'Shopify Store Integration'],
-    techStack: ['Shopify APIs', 'JavaScript/Node.js', 'AI Models', 'REST APIs', 'Databases'],
-    col1Img1: createStandardPlaceholder('INTENT BEHAVIOR SCORING'),
-    col1Img2: createStandardPlaceholder('SHOPIFY DATA STREAM AGGREGATION'),
-    col2Img: createStandardPlaceholder('AI SHOPPING INTELLIGENCE PLATFORM'),
-  },
-  {
-    id: 'tableflow',
-    number: '03',
-    category: 'Full-Stack SaaS Architecture',
-    title: 'TableFlow',
-    subtitle: 'QR Restaurant Ordering System',
-    description: 'Full-stack QR ordering platform featuring customer-side menu navigation & instant order placement alongside a real-time restaurant admin dashboard for table tracking and order fulfillment.',
-    highlights: ['QR Code Table Association', 'Customer Order UX', 'Real-time Admin Dashboard', 'Microservice API Layer'],
-    techStack: ['Next.js', 'NestJS', 'MongoDB', 'REST APIs', 'Vercel', 'Railway'],
-    col1Img1: createStandardPlaceholder('CUSTOMER QR MENU ORDERING'),
-    col1Img2: createStandardPlaceholder('ADMIN KITCHEN DASHBOARD'),
-    col2Img: createStandardPlaceholder('TABLEFLOW FULL-STACK ECOSYSTEM'),
-  },
-  {
-    id: 'synterview',
-    number: '04',
-    category: 'AI SaaS & Backend Security',
-    title: 'Synterview',
-    subtitle: 'AI Mock Interview & Security System',
-    description: 'AI mock interview application engineered with rigorous security: JWT refresh-token rotation, rate limiting, account lockout protection, Zod validation, and AI service retry/fallback mechanisms.',
-    highlights: ['AI Interview Generation', 'Refresh-Token Rotation', 'Rate Limiting & Lockout', 'AI Fallback Resilience'],
-    techStack: ['Node.js', 'Express', 'MongoDB', 'Zod', 'AI APIs', 'Railway'],
-    col1Img1: createStandardPlaceholder('AI QUESTION GENERATOR'),
-    col1Img2: createStandardPlaceholder('JWT REFRESH TOKEN ROTATION'),
-    col2Img: createStandardPlaceholder('SYNTERVIEW SECURITY ARCHITECTURE'),
-  },
-  {
-    id: 'ai-receptionist',
-    number: '05',
-    category: 'Conversational AI & Automation',
-    title: 'AI Receptionist / Voice Agent',
-    subtitle: 'Multilingual Voice & Business Workflows',
-    description: 'Autonomous AI voice agent handling business communication: call handling, FAQs, lead capture, appointment scheduling, WhatsApp automation, and custom knowledge base integration for clinics & gyms.',
-    highlights: ['Multilingual Voice AI', 'Lead Capture & Scheduling', 'WhatsApp Meta Automation', 'Custom Business KB'],
-    techStack: ['Vapi', 'n8n', 'WhatsApp API', 'Voice AI', 'Webhooks'],
-    col1Img1: createStandardPlaceholder('VAPI VOICE AGENT WORKFLOW'),
-    col1Img2: createStandardPlaceholder('WHATSAPP AUTOMATION PIPELINE'),
-    col2Img: createStandardPlaceholder('AI RECEPTIONIST PLATFORM'),
-  }
-];
+export type ProjectData = ProjectItem;
 
 interface ProjectsSectionProps {
   onSelectProject: (project: ProjectData) => void;
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProject }) => {
+  const { data } = usePortfolio();
   const containerRef = useRef<HTMLDivElement>(null);
   const [showMoreProjects, setShowMoreProjects] = useState(false);
 
@@ -102,6 +21,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
     target: containerRef,
     offset: ['start start', 'end end'],
   });
+
+  const featuredProjects = data.projects;
 
   return (
     <section
@@ -121,8 +42,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
 
       {/* Sticky Stacking Cards Container */}
       <div className="relative max-w-6xl mx-auto flex flex-col gap-16 md:gap-24">
-        {FEATURED_PROJECTS.map((project, index) => {
-          const totalCards = FEATURED_PROJECTS.length;
+        {featuredProjects.map((project, index) => {
+          const totalCards = featuredProjects.length;
           const targetScale = 1 - (totalCards - 1 - index) * 0.03;
 
           return (

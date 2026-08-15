@@ -3,12 +3,15 @@ import { Magnet } from './Magnet';
 import { ContactButton } from './ContactButton';
 import { FadeIn } from './FadeIn';
 import avatarTransparent from '../assets/avatar_transparent.png';
+import { usePortfolio } from '../context/PortfolioContext';
 
 interface HeroSectionProps {
   onOpenContact: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
+  const { data } = usePortfolio();
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -93,10 +96,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
                 className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03] select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
               />
               
-              {/* Badge Overlay */}
-              <div className="absolute bottom-2 sm:bottom-12 left-1/2 -translate-x-1/2 bg-[#0C0C0C]/85 backdrop-blur-md border border-[#D7E2EA]/30 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#D7E2EA] flex items-center gap-1.5 sm:gap-2 shadow-lg z-40">
+              {/* Badge Overlay - Positioned Below Chin with Zero Overlap */}
+              <div className="absolute -bottom-5 sm:-bottom-7 left-1/2 -translate-x-1/2 bg-[#0C0C0C]/90 backdrop-blur-md border border-[#D7E2EA]/30 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#D7E2EA] flex items-center gap-1.5 sm:gap-2 shadow-xl z-40">
                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>CO-FOUNDER @ FLOWCHAIN • AI/ML</span>
+                <span>{data.hero.badgeText}</span>
               </div>
             </div>
           </Magnet>
@@ -108,7 +111,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
         <FadeIn delay={0.35} y={20}>
           <p className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[130px] sm:max-w-[220px] md:max-w-[280px]"
              style={{ fontSize: 'clamp(0.65rem, 1.3vw, 1.35rem)' }}>
-            a cs & ai developer driven by crafting striking & automated digital products
+            {data.hero.tagline}
           </p>
         </FadeIn>
 
