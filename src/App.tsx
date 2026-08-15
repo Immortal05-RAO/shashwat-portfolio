@@ -29,7 +29,10 @@ export function AppContent() {
   return (
     <div className="bg-[#0C0C0C] min-h-screen text-[#D7E2EA] font-['Kanit',sans-serif] selection:bg-[#B600A8]/30 selection:text-white overflow-x-clip">
       {/* 1. HERO SECTION */}
-      <HeroSection onOpenContact={() => setIsContactOpen(true)} />
+      <HeroSection
+        onOpenContact={() => setIsContactOpen(true)}
+        onOpenAdmin={() => setIsAdminLoginOpen(true)}
+      />
 
       {/* 2. MARQUEE SECTION */}
       <MarqueeSection />

@@ -7,9 +7,10 @@ import { usePortfolio } from '../context/PortfolioContext';
 
 interface HeroSectionProps {
   onOpenContact: () => void;
+  onOpenAdmin: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onOpenAdmin }) => {
   const { data } = usePortfolio();
 
   const scrollToSection = (id: string) => {
@@ -52,6 +53,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
           >
             Contact
           </a>
+          <button
+            onClick={onOpenAdmin}
+            className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-gradient-to-r from-[#B600A8] to-[#7621B0] hover:opacity-90 text-white font-bold text-[10px] sm:text-xs tracking-widest uppercase shadow-md transition-all cursor-pointer"
+          >
+            Admin CMS
+          </button>
         </nav>
       </FadeIn>
 
