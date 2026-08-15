@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn } from './FadeIn';
 import { LiveProjectButton } from './LiveProjectButton';
 import { Zap, Bot, ChevronDown, ChevronUp } from 'lucide-react';
+import { createProjectPlaceholder } from '../utils/placeholders';
 
 export interface ProjectData {
   id: string;
@@ -30,9 +31,30 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'An AI, automation, web development, and digital systems agency building custom AI agents, business process automation, and high-performance digital architecture for enterprises.',
     highlights: ['Business Process Automation', 'Custom AI Agents', 'Web Systems Architecture', 'Enterprise Integration'],
     techStack: ['n8n', 'AI APIs', 'Node.js', 'React', 'Automation Pipelines'],
-    col1Img1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
-    col1Img2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
-    col2Img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85',
+    col1Img1: createProjectPlaceholder({
+      title: 'Flowchain AI Node',
+      subtitle: 'Automated Agent Orchestration Pipeline',
+      tag: 'AI Agency',
+      variant: 'workflow',
+      themeColor: '#B600A8',
+      accentColor: '#7621B0',
+    }),
+    col1Img2: createProjectPlaceholder({
+      title: 'System Architecture',
+      subtitle: 'Enterprise Integration Layer',
+      tag: 'Automation',
+      variant: 'dashboard',
+      themeColor: '#7621B0',
+      accentColor: '#BE4C00',
+    }),
+    col2Img: createProjectPlaceholder({
+      title: 'Flowchain Platform',
+      subtitle: 'AI Agents & Business Process Automation',
+      tag: 'Co-Founded Agency',
+      variant: 'workflow',
+      themeColor: '#B600A8',
+      accentColor: '#10B981',
+    }),
     liveUrl: 'https://flowchain.agency'
   },
   {
@@ -44,9 +66,30 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'An AI-powered system designed to analyze shopping intent and customer behavior in real-time with idempotent data processing, scoring algorithms, and seamless Shopify API aggregation layers.',
     highlights: ['Shopping-Intent Detection', 'Idempotent Data Processing', 'Real-time Scoring Systems', 'Shopify Store Integration'],
     techStack: ['Shopify APIs', 'JavaScript/Node.js', 'AI Models', 'REST APIs', 'Databases'],
-    col1Img1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
-    col1Img2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
-    col2Img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85',
+    col1Img1: createProjectPlaceholder({
+      title: 'Intent Analytics',
+      subtitle: 'Real-time Customer Behavior Scoring',
+      tag: 'Shopify AI',
+      variant: 'analytics',
+      themeColor: '#10B981',
+      accentColor: '#3B82F6',
+    }),
+    col1Img2: createProjectPlaceholder({
+      title: 'Data Aggregation',
+      subtitle: 'Idempotent Store Event Pipelines',
+      tag: 'Scoring System',
+      variant: 'analytics',
+      themeColor: '#3B82F6',
+      accentColor: '#B600A8',
+    }),
+    col2Img: createProjectPlaceholder({
+      title: 'Shopify AI Intelligence',
+      subtitle: 'Intent Detection & Customer Conversion Platform',
+      tag: 'E-Commerce SaaS',
+      variant: 'analytics',
+      themeColor: '#10B981',
+      accentColor: '#B600A8',
+    }),
   },
   {
     id: 'tableflow',
@@ -57,9 +100,30 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'Full-stack QR ordering platform featuring customer-side menu navigation & instant order placement alongside a real-time restaurant admin dashboard for table tracking and order fulfillment.',
     highlights: ['QR Code Table Association', 'Customer Order UX', 'Real-time Admin Dashboard', 'Microservice API Layer'],
     techStack: ['Next.js', 'NestJS', 'MongoDB', 'REST APIs', 'Vercel', 'Railway'],
-    col1Img1: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
-    col1Img2: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
-    col2Img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85',
+    col1Img1: createProjectPlaceholder({
+      title: 'QR Menu Association',
+      subtitle: 'Instant Customer Ordering Menu UI',
+      tag: 'Customer Ordering',
+      variant: 'mobile',
+      themeColor: '#F59E0B',
+      accentColor: '#EF4444',
+    }),
+    col1Img2: createProjectPlaceholder({
+      title: 'Kitchen Dashboard',
+      subtitle: 'Real-time Restaurant Order Fulfillment',
+      tag: 'Admin Portal',
+      variant: 'dashboard',
+      themeColor: '#EF4444',
+      accentColor: '#F59E0B',
+    }),
+    col2Img: createProjectPlaceholder({
+      title: 'TableFlow Ecosystem',
+      subtitle: 'Full-Stack Next.js & NestJS Microservice Architecture',
+      tag: 'Full-Stack SaaS',
+      variant: 'mobile',
+      themeColor: '#F59E0B',
+      accentColor: '#7621B0',
+    }),
   },
   {
     id: 'synterview',
@@ -70,9 +134,30 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'AI mock interview application engineered with rigorous security: JWT refresh-token rotation, rate limiting, account lockout protection, Zod validation, and AI service retry/fallback mechanisms.',
     highlights: ['AI Interview Generation', 'Refresh-Token Rotation', 'Rate Limiting & Lockout', 'AI Fallback Resilience'],
     techStack: ['Node.js', 'Express', 'MongoDB', 'Zod', 'AI APIs', 'Railway'],
-    col1Img1: 'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-    col1Img2: 'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
-    col2Img: 'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
+    col1Img1: createProjectPlaceholder({
+      title: 'AI Question Generator',
+      subtitle: 'Dynamic Interview Session & Fallback Engine',
+      tag: 'AI SaaS',
+      variant: 'workflow',
+      themeColor: '#8B5CF6',
+      accentColor: '#EC4899',
+    }),
+    col1Img2: createProjectPlaceholder({
+      title: 'Security Middleware',
+      subtitle: 'JWT Token Rotation & Zod Validation',
+      tag: 'Security Architecture',
+      variant: 'code',
+      themeColor: '#EC4899',
+      accentColor: '#3B82F6',
+    }),
+    col2Img: createProjectPlaceholder({
+      title: 'Synterview Core Platform',
+      subtitle: 'Rate Limiting, Account Lockout & Fallback AI Retry',
+      tag: 'Backend Security',
+      variant: 'code',
+      themeColor: '#8B5CF6',
+      accentColor: '#10B981',
+    }),
   },
   {
     id: 'ai-receptionist',
@@ -83,9 +168,30 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'Autonomous AI voice agent handling business communication: call handling, FAQs, lead capture, appointment scheduling, WhatsApp automation, and custom knowledge base integration for clinics & gyms.',
     highlights: ['Multilingual Voice AI', 'Lead Capture & Scheduling', 'WhatsApp Meta Automation', 'Custom Business KB'],
     techStack: ['Vapi', 'n8n', 'WhatsApp API', 'Voice AI', 'Webhooks'],
-    col1Img1: 'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-    col1Img2: 'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-    col2Img: 'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
+    col1Img1: createProjectPlaceholder({
+      title: 'Multilingual Voice AI',
+      subtitle: 'Vapi & Conversational Phone Agent',
+      tag: 'Voice AI',
+      variant: 'workflow',
+      themeColor: '#06B6D4',
+      accentColor: '#3B82F6',
+    }),
+    col1Img2: createProjectPlaceholder({
+      title: 'Meta WhatsApp Flow',
+      subtitle: 'Automated Lead Capture & Booking',
+      tag: 'WhatsApp API',
+      variant: 'mobile',
+      themeColor: '#10B981',
+      accentColor: '#06B6D4',
+    }),
+    col2Img: createProjectPlaceholder({
+      title: 'AI Business Receptionist',
+      subtitle: 'Knowledge Base & Local Business Scheduling Automation',
+      tag: 'Conversational AI',
+      variant: 'workflow',
+      themeColor: '#06B6D4',
+      accentColor: '#B600A8',
+    }),
   }
 ];
 

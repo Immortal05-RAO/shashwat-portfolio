@@ -1,30 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createProjectPlaceholder } from '../utils/placeholders';
 
-const ROW1_IMAGES = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-  'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
-  'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
-  'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
-  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-  'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
-  'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
-  'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
-  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
-  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-  'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
+const MARQUEE_MOCKUPS_ROW1 = [
+  createProjectPlaceholder({ title: 'Flowchain AI Engine', subtitle: 'Agent Orchestration Pipeline', tag: 'AI Agency', variant: 'workflow', themeColor: '#B600A8', accentColor: '#7621B0' }),
+  createProjectPlaceholder({ title: 'Intent Scoring SaaS', subtitle: 'Shopify Real-time Behavior Analytics', tag: 'Shopify AI', variant: 'analytics', themeColor: '#10B981', accentColor: '#3B82F6' }),
+  createProjectPlaceholder({ title: 'TableFlow QR Menu', subtitle: 'Customer Instant Order Interface', tag: 'Full-Stack', variant: 'mobile', themeColor: '#F59E0B', accentColor: '#EF4444' }),
+  createProjectPlaceholder({ title: 'Synterview Security', subtitle: 'JWT Refresh Rotation & Middleware', tag: 'Security', variant: 'code', themeColor: '#EC4899', accentColor: '#8B5CF6' }),
+  createProjectPlaceholder({ title: 'AI Voice Receptionist', subtitle: 'Vapi & WhatsApp Lead Capture', tag: 'Voice AI', variant: 'workflow', themeColor: '#06B6D4', accentColor: '#10B981' }),
+  createProjectPlaceholder({ title: 'ITR CA Automation', subtitle: 'Document Parsing & Tax Pipelines', tag: 'Automation', variant: 'dashboard', themeColor: '#3B82F6', accentColor: '#B600A8' }),
 ];
 
-const ROW2_IMAGES = [
-  'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
-  'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
-  'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
-  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
-  'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
-  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
-  'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
-  'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
-  'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
-  'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
+const MARQUEE_MOCKUPS_ROW2 = [
+  createProjectPlaceholder({ title: 'Local Business Lead AI', subtitle: 'Google Maps Prospect Intelligence', tag: 'Lead Gen', variant: 'analytics', themeColor: '#10B981', accentColor: '#F59E0B' }),
+  createProjectPlaceholder({ title: 'Idempotent Processing', subtitle: 'E-Commerce Data Stream Aggregation', tag: 'Architecture', variant: 'dashboard', themeColor: '#7621B0', accentColor: '#06B6D4' }),
+  createProjectPlaceholder({ title: 'Real-time Kitchen Dashboard', subtitle: 'Table Tracking & Order Fulfillment', tag: 'Admin SaaS', variant: 'mobile', themeColor: '#EF4444', accentColor: '#3B82F6' }),
+  createProjectPlaceholder({ title: 'Zod Validation Pipeline', subtitle: 'Account Lockout & Fallback Retry', tag: 'Backend Security', variant: 'code', themeColor: '#8B5CF6', accentColor: '#10B981' }),
+  createProjectPlaceholder({ title: 'Multilingual Clinic Agent', subtitle: 'Appointment Booking Knowledge Base', tag: 'Conversational AI', variant: 'workflow', themeColor: '#06B6D4', accentColor: '#EC4899' }),
+  createProjectPlaceholder({ title: 'Flowchain Enterprise', subtitle: 'Custom Enterprise System Integration', tag: 'Agency System', variant: 'dashboard', themeColor: '#B600A8', accentColor: '#10B981' }),
 ];
 
 export const MarqueeSection: React.FC = () => {
@@ -46,8 +38,8 @@ export const MarqueeSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const row1ImagesTripled = [...ROW1_IMAGES, ...ROW1_IMAGES, ...ROW1_IMAGES];
-  const row2ImagesTripled = [...ROW2_IMAGES, ...ROW2_IMAGES, ...ROW2_IMAGES];
+  const row1ImagesTripled = [...MARQUEE_MOCKUPS_ROW1, ...MARQUEE_MOCKUPS_ROW1, ...MARQUEE_MOCKUPS_ROW1];
+  const row2ImagesTripled = [...MARQUEE_MOCKUPS_ROW2, ...MARQUEE_MOCKUPS_ROW2, ...MARQUEE_MOCKUPS_ROW2];
 
   const row1Transform = `translateX(${scrollOffset - 200}px)`;
   const row2Transform = `translateX(${-(scrollOffset - 200)}px)`;
@@ -66,13 +58,13 @@ export const MarqueeSection: React.FC = () => {
           {row1ImagesTripled.map((imgUrl, idx) => (
             <div
               key={`r1-${idx}`}
-              className="w-[300px] sm:w-[380px] md:w-[420px] h-[190px] sm:h-[240px] md:h-[270px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/10 shadow-lg"
+              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/15 shadow-xl transition-transform duration-500 hover:scale-105"
             >
               <img
                 src={imgUrl}
-                alt={`Product Preview ${idx}`}
+                alt={`AI System Preview ${idx}`}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
@@ -86,13 +78,13 @@ export const MarqueeSection: React.FC = () => {
           {row2ImagesTripled.map((imgUrl, idx) => (
             <div
               key={`r2-${idx}`}
-              className="w-[300px] sm:w-[380px] md:w-[420px] h-[190px] sm:h-[240px] md:h-[270px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/10 shadow-lg"
+              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/15 shadow-xl transition-transform duration-500 hover:scale-105"
             >
               <img
                 src={imgUrl}
-                alt={`Product Preview ${idx}`}
+                alt={`AI System Preview ${idx}`}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
