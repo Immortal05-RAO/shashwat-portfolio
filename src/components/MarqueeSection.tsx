@@ -1,22 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { createProjectPlaceholder } from '../utils/placeholders';
+import { createStandardPlaceholder } from '../utils/placeholders';
 
 const MARQUEE_MOCKUPS_ROW1 = [
-  createProjectPlaceholder({ title: 'Flowchain AI Engine', subtitle: 'Agent Orchestration Pipeline', tag: 'AI Agency', variant: 'workflow', themeColor: '#B600A8', accentColor: '#7621B0' }),
-  createProjectPlaceholder({ title: 'Intent Scoring SaaS', subtitle: 'Shopify Real-time Behavior Analytics', tag: 'Shopify AI', variant: 'analytics', themeColor: '#10B981', accentColor: '#3B82F6' }),
-  createProjectPlaceholder({ title: 'TableFlow QR Menu', subtitle: 'Customer Instant Order Interface', tag: 'Full-Stack', variant: 'mobile', themeColor: '#F59E0B', accentColor: '#EF4444' }),
-  createProjectPlaceholder({ title: 'Synterview Security', subtitle: 'JWT Refresh Rotation & Middleware', tag: 'Security', variant: 'code', themeColor: '#EC4899', accentColor: '#8B5CF6' }),
-  createProjectPlaceholder({ title: 'AI Voice Receptionist', subtitle: 'Vapi & WhatsApp Lead Capture', tag: 'Voice AI', variant: 'workflow', themeColor: '#06B6D4', accentColor: '#10B981' }),
-  createProjectPlaceholder({ title: 'ITR CA Automation', subtitle: 'Document Parsing & Tax Pipelines', tag: 'Automation', variant: 'dashboard', themeColor: '#3B82F6', accentColor: '#B600A8' }),
+  createStandardPlaceholder('FLOWCHAIN AGENT ENGINE'),
+  createStandardPlaceholder('SHOPIFY INTENT ANALYTICS'),
+  createStandardPlaceholder('TABLEFLOW QR MENU'),
+  createStandardPlaceholder('SYNTERVIEW SECURITY CODE'),
+  createStandardPlaceholder('AI VOICE RECEPTIONIST'),
+  createStandardPlaceholder('ITR DOCUMENT PARSING'),
 ];
 
 const MARQUEE_MOCKUPS_ROW2 = [
-  createProjectPlaceholder({ title: 'Local Business Lead AI', subtitle: 'Google Maps Prospect Intelligence', tag: 'Lead Gen', variant: 'analytics', themeColor: '#10B981', accentColor: '#F59E0B' }),
-  createProjectPlaceholder({ title: 'Idempotent Processing', subtitle: 'E-Commerce Data Stream Aggregation', tag: 'Architecture', variant: 'dashboard', themeColor: '#7621B0', accentColor: '#06B6D4' }),
-  createProjectPlaceholder({ title: 'Real-time Kitchen Dashboard', subtitle: 'Table Tracking & Order Fulfillment', tag: 'Admin SaaS', variant: 'mobile', themeColor: '#EF4444', accentColor: '#3B82F6' }),
-  createProjectPlaceholder({ title: 'Zod Validation Pipeline', subtitle: 'Account Lockout & Fallback Retry', tag: 'Backend Security', variant: 'code', themeColor: '#8B5CF6', accentColor: '#10B981' }),
-  createProjectPlaceholder({ title: 'Multilingual Clinic Agent', subtitle: 'Appointment Booking Knowledge Base', tag: 'Conversational AI', variant: 'workflow', themeColor: '#06B6D4', accentColor: '#EC4899' }),
-  createProjectPlaceholder({ title: 'Flowchain Enterprise', subtitle: 'Custom Enterprise System Integration', tag: 'Agency System', variant: 'dashboard', themeColor: '#B600A8', accentColor: '#10B981' }),
+  createStandardPlaceholder('LOCAL BUSINESS LEAD AI'),
+  createStandardPlaceholder('IDEMPOTENT EVENT AGGREGATION'),
+  createStandardPlaceholder('REALTIME KITCHEN DASHBOARD'),
+  createStandardPlaceholder('JWT ROTATION & LOCKOUT'),
+  createStandardPlaceholder('MULTILINGUAL CLINIC VOICE'),
+  createStandardPlaceholder('FLOWCHAIN ENTERPRISE SYSTEM'),
 ];
 
 export const MarqueeSection: React.FC = () => {
@@ -62,7 +62,7 @@ export const MarqueeSection: React.FC = () => {
             >
               <img
                 src={imgUrl}
-                alt={`AI System Preview ${idx}`}
+                alt={`System Placeholder ${idx}`}
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
@@ -82,7 +82,7 @@ export const MarqueeSection: React.FC = () => {
             >
               <img
                 src={imgUrl}
-                alt={`AI System Preview ${idx}`}
+                alt={`System Placeholder ${idx}`}
                 loading="lazy"
                 className="w-full h-full object-cover"
               />

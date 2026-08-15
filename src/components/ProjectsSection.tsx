@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FadeIn } from './FadeIn';
 import { LiveProjectButton } from './LiveProjectButton';
 import { Zap, Bot, ChevronDown, ChevronUp } from 'lucide-react';
-import { createProjectPlaceholder } from '../utils/placeholders';
+import { createStandardPlaceholder } from '../utils/placeholders';
 
 export interface ProjectData {
   id: string;
@@ -31,30 +31,9 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'An AI, automation, web development, and digital systems agency building custom AI agents, business process automation, and high-performance digital architecture for enterprises.',
     highlights: ['Business Process Automation', 'Custom AI Agents', 'Web Systems Architecture', 'Enterprise Integration'],
     techStack: ['n8n', 'AI APIs', 'Node.js', 'React', 'Automation Pipelines'],
-    col1Img1: createProjectPlaceholder({
-      title: 'Flowchain AI Node',
-      subtitle: 'Automated Agent Orchestration Pipeline',
-      tag: 'AI Agency',
-      variant: 'workflow',
-      themeColor: '#B600A8',
-      accentColor: '#7621B0',
-    }),
-    col1Img2: createProjectPlaceholder({
-      title: 'System Architecture',
-      subtitle: 'Enterprise Integration Layer',
-      tag: 'Automation',
-      variant: 'dashboard',
-      themeColor: '#7621B0',
-      accentColor: '#BE4C00',
-    }),
-    col2Img: createProjectPlaceholder({
-      title: 'Flowchain Platform',
-      subtitle: 'AI Agents & Business Process Automation',
-      tag: 'Co-Founded Agency',
-      variant: 'workflow',
-      themeColor: '#B600A8',
-      accentColor: '#10B981',
-    }),
+    col1Img1: createStandardPlaceholder('FLOWCHAIN AGENT PIPELINE'),
+    col1Img2: createStandardPlaceholder('ENTERPRISE INTEGRATION LAYER'),
+    col2Img: createStandardPlaceholder('FLOWCHAIN AGENCY PLATFORM'),
     liveUrl: 'https://flowchain.agency'
   },
   {
@@ -66,30 +45,9 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'An AI-powered system designed to analyze shopping intent and customer behavior in real-time with idempotent data processing, scoring algorithms, and seamless Shopify API aggregation layers.',
     highlights: ['Shopping-Intent Detection', 'Idempotent Data Processing', 'Real-time Scoring Systems', 'Shopify Store Integration'],
     techStack: ['Shopify APIs', 'JavaScript/Node.js', 'AI Models', 'REST APIs', 'Databases'],
-    col1Img1: createProjectPlaceholder({
-      title: 'Intent Analytics',
-      subtitle: 'Real-time Customer Behavior Scoring',
-      tag: 'Shopify AI',
-      variant: 'analytics',
-      themeColor: '#10B981',
-      accentColor: '#3B82F6',
-    }),
-    col1Img2: createProjectPlaceholder({
-      title: 'Data Aggregation',
-      subtitle: 'Idempotent Store Event Pipelines',
-      tag: 'Scoring System',
-      variant: 'analytics',
-      themeColor: '#3B82F6',
-      accentColor: '#B600A8',
-    }),
-    col2Img: createProjectPlaceholder({
-      title: 'Shopify AI Intelligence',
-      subtitle: 'Intent Detection & Customer Conversion Platform',
-      tag: 'E-Commerce SaaS',
-      variant: 'analytics',
-      themeColor: '#10B981',
-      accentColor: '#B600A8',
-    }),
+    col1Img1: createStandardPlaceholder('INTENT BEHAVIOR SCORING'),
+    col1Img2: createStandardPlaceholder('SHOPIFY DATA STREAM AGGREGATION'),
+    col2Img: createStandardPlaceholder('AI SHOPPING INTELLIGENCE PLATFORM'),
   },
   {
     id: 'tableflow',
@@ -100,30 +58,9 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'Full-stack QR ordering platform featuring customer-side menu navigation & instant order placement alongside a real-time restaurant admin dashboard for table tracking and order fulfillment.',
     highlights: ['QR Code Table Association', 'Customer Order UX', 'Real-time Admin Dashboard', 'Microservice API Layer'],
     techStack: ['Next.js', 'NestJS', 'MongoDB', 'REST APIs', 'Vercel', 'Railway'],
-    col1Img1: createProjectPlaceholder({
-      title: 'QR Menu Association',
-      subtitle: 'Instant Customer Ordering Menu UI',
-      tag: 'Customer Ordering',
-      variant: 'mobile',
-      themeColor: '#F59E0B',
-      accentColor: '#EF4444',
-    }),
-    col1Img2: createProjectPlaceholder({
-      title: 'Kitchen Dashboard',
-      subtitle: 'Real-time Restaurant Order Fulfillment',
-      tag: 'Admin Portal',
-      variant: 'dashboard',
-      themeColor: '#EF4444',
-      accentColor: '#F59E0B',
-    }),
-    col2Img: createProjectPlaceholder({
-      title: 'TableFlow Ecosystem',
-      subtitle: 'Full-Stack Next.js & NestJS Microservice Architecture',
-      tag: 'Full-Stack SaaS',
-      variant: 'mobile',
-      themeColor: '#F59E0B',
-      accentColor: '#7621B0',
-    }),
+    col1Img1: createStandardPlaceholder('CUSTOMER QR MENU ORDERING'),
+    col1Img2: createStandardPlaceholder('ADMIN KITCHEN DASHBOARD'),
+    col2Img: createStandardPlaceholder('TABLEFLOW FULL-STACK ECOSYSTEM'),
   },
   {
     id: 'synterview',
@@ -134,30 +71,9 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'AI mock interview application engineered with rigorous security: JWT refresh-token rotation, rate limiting, account lockout protection, Zod validation, and AI service retry/fallback mechanisms.',
     highlights: ['AI Interview Generation', 'Refresh-Token Rotation', 'Rate Limiting & Lockout', 'AI Fallback Resilience'],
     techStack: ['Node.js', 'Express', 'MongoDB', 'Zod', 'AI APIs', 'Railway'],
-    col1Img1: createProjectPlaceholder({
-      title: 'AI Question Generator',
-      subtitle: 'Dynamic Interview Session & Fallback Engine',
-      tag: 'AI SaaS',
-      variant: 'workflow',
-      themeColor: '#8B5CF6',
-      accentColor: '#EC4899',
-    }),
-    col1Img2: createProjectPlaceholder({
-      title: 'Security Middleware',
-      subtitle: 'JWT Token Rotation & Zod Validation',
-      tag: 'Security Architecture',
-      variant: 'code',
-      themeColor: '#EC4899',
-      accentColor: '#3B82F6',
-    }),
-    col2Img: createProjectPlaceholder({
-      title: 'Synterview Core Platform',
-      subtitle: 'Rate Limiting, Account Lockout & Fallback AI Retry',
-      tag: 'Backend Security',
-      variant: 'code',
-      themeColor: '#8B5CF6',
-      accentColor: '#10B981',
-    }),
+    col1Img1: createStandardPlaceholder('AI QUESTION GENERATOR'),
+    col1Img2: createStandardPlaceholder('JWT REFRESH TOKEN ROTATION'),
+    col2Img: createStandardPlaceholder('SYNTERVIEW SECURITY ARCHITECTURE'),
   },
   {
     id: 'ai-receptionist',
@@ -168,30 +84,9 @@ const FEATURED_PROJECTS: ProjectData[] = [
     description: 'Autonomous AI voice agent handling business communication: call handling, FAQs, lead capture, appointment scheduling, WhatsApp automation, and custom knowledge base integration for clinics & gyms.',
     highlights: ['Multilingual Voice AI', 'Lead Capture & Scheduling', 'WhatsApp Meta Automation', 'Custom Business KB'],
     techStack: ['Vapi', 'n8n', 'WhatsApp API', 'Voice AI', 'Webhooks'],
-    col1Img1: createProjectPlaceholder({
-      title: 'Multilingual Voice AI',
-      subtitle: 'Vapi & Conversational Phone Agent',
-      tag: 'Voice AI',
-      variant: 'workflow',
-      themeColor: '#06B6D4',
-      accentColor: '#3B82F6',
-    }),
-    col1Img2: createProjectPlaceholder({
-      title: 'Meta WhatsApp Flow',
-      subtitle: 'Automated Lead Capture & Booking',
-      tag: 'WhatsApp API',
-      variant: 'mobile',
-      themeColor: '#10B981',
-      accentColor: '#06B6D4',
-    }),
-    col2Img: createProjectPlaceholder({
-      title: 'AI Business Receptionist',
-      subtitle: 'Knowledge Base & Local Business Scheduling Automation',
-      tag: 'Conversational AI',
-      variant: 'workflow',
-      themeColor: '#06B6D4',
-      accentColor: '#B600A8',
-    }),
+    col1Img1: createStandardPlaceholder('VAPI VOICE AGENT WORKFLOW'),
+    col1Img2: createStandardPlaceholder('WHATSAPP AUTOMATION PIPELINE'),
+    col2Img: createStandardPlaceholder('AI RECEPTIONIST PLATFORM'),
   }
 ];
 
