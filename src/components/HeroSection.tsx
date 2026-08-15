@@ -18,76 +18,73 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
 
   return (
     <section className="relative h-screen w-full flex flex-col justify-between overflow-x-clip px-4 sm:px-8 md:px-10 bg-[#0C0C0C]">
-      {/* TOP CONTAINER: NAVBAR + HERO HEADING */}
-      <div className="w-full flex flex-col gap-2 sm:gap-4 pt-5 sm:pt-6 md:pt-8 z-30">
-        {/* 1. NAVBAR */}
-        <FadeIn delay={0} y={-20} className="w-full">
-          <nav className="flex items-center justify-between w-full text-[#D7E2EA] font-medium uppercase tracking-wider text-[11px] sm:text-sm md:text-lg lg:text-[1.4rem]">
-            <a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
-              className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
-            >
-              About
-            </a>
-            <a
-              href="#capabilities"
-              onClick={(e) => { e.preventDefault(); scrollToSection('capabilities'); }}
-              className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
-            >
-              Capabilities
-            </a>
-            <a
-              href="#projects"
-              onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
-              className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); onOpenContact(); }}
-              className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
-            >
-              Contact
-            </a>
-          </nav>
-        </FadeIn>
+      {/* 1. NAVBAR */}
+      <FadeIn delay={0} y={-20} className="w-full pt-5 sm:pt-6 md:pt-8 z-30">
+        <nav className="flex items-center justify-between w-full text-[#D7E2EA] font-medium uppercase tracking-wider text-[11px] sm:text-sm md:text-lg lg:text-[1.4rem]">
+          <a
+            href="#about"
+            onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
+            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
+          >
+            About
+          </a>
+          <a
+            href="#capabilities"
+            onClick={(e) => { e.preventDefault(); scrollToSection('capabilities'); }}
+            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
+          >
+            Capabilities
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
+            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
+          >
+            Projects
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => { e.preventDefault(); onOpenContact(); }}
+            className="hover:opacity-70 transition-opacity duration-200 cursor-pointer"
+          >
+            Contact
+          </a>
+        </nav>
+      </FadeIn>
 
-        {/* 2. MASSIVE HERO HEADING */}
-        <div className="overflow-hidden w-full z-20 mt-2 sm:mt-3 md:mt-0 flex justify-center">
-          <FadeIn delay={0.15} y={30} className="w-full">
-            <svg className="w-full h-auto max-h-[14vh] sm:max-h-[22vh] select-none" viewBox="0 0 1400 170" fill="none">
-              <defs>
-                <linearGradient id="heroGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#646973" />
-                  <stop offset="100%" stopColor="#BBCCD7" />
-                </linearGradient>
-              </defs>
-              <text
-                x="50%"
-                y="50%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fill="url(#heroGradient)"
-                style={{ fontFamily: 'Kanit, sans-serif', fontWeight: 900, fontSize: '138px', letterSpacing: '-0.03em' }}
-              >
-                HI, I&apos;M SHASHWAT
-              </text>
-            </svg>
-          </FadeIn>
-        </div>
+      {/* 2. MASSIVE HERO HEADING */}
+      <div className="overflow-hidden w-full z-10 mt-3 sm:mt-2 md:-mt-5 flex justify-center">
+        <FadeIn delay={0.15} y={40} className="w-full">
+          <svg className="w-full h-auto max-h-[16vh] sm:max-h-[22vh] select-none" viewBox="0 0 1400 170" fill="none">
+            <defs>
+              <linearGradient id="heroGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#646973" />
+                <stop offset="100%" stopColor="#BBCCD7" />
+              </linearGradient>
+            </defs>
+            <text
+              x="50%"
+              y="60%"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="url(#heroGradient)"
+              style={{ fontFamily: 'Kanit, sans-serif', fontWeight: 900, fontSize: '138px', letterSpacing: '-0.03em' }}
+            >
+              HI, I&apos;M SHASHWAT
+            </text>
+          </svg>
+        </FadeIn>
       </div>
 
       {/* 3. MAGNETIC PORTRAIT / CENTERPIECE VISUAL */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-30 top-[52%] sm:top-auto sm:translate-y-0 sm:bottom-[-20px] md:bottom-[-30px] -translate-y-1/2 pointer-events-auto">
+      <div className="absolute left-1/2 -translate-x-1/2 z-30 top-[48%] -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-auto">
         <FadeIn delay={0.6} y={30}>
           <Magnet
             padding={150}
             strength={3}
             activeTransition="transform 0.3s ease-out"
             inactiveTransition="transform 0.6s ease-in-out"
-            className="w-[210px] xs:w-[240px] sm:w-[350px] md:w-[440px] lg:w-[500px]"
+            className="w-[240px] sm:w-[350px] md:w-[440px] lg:w-[500px]"
           >
             <div className="relative group cursor-pointer flex flex-col items-center">
               <img
@@ -97,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
               />
               
               {/* Badge Overlay */}
-              <div className="absolute bottom-2 sm:bottom-12 left-1/2 -translate-x-1/2 bg-[#0C0C0C]/85 backdrop-blur-md border border-[#D7E2EA]/30 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#D7E2EA] flex items-center gap-1.5 sm:gap-2 shadow-lg z-40">
+              <div className="absolute bottom-4 sm:bottom-12 left-1/2 -translate-x-1/2 bg-[#0C0C0C]/85 backdrop-blur-md border border-[#D7E2EA]/30 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#D7E2EA] flex items-center gap-1.5 sm:gap-2 shadow-lg z-40">
                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>CO-FOUNDER @ FLOWCHAIN • AI/ML</span>
               </div>
