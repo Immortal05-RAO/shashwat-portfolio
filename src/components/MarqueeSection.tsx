@@ -1,22 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { createStandardPlaceholder } from '../utils/placeholders';
+import { ImagePlaceholder } from './ImagePlaceholder';
 
-const MARQUEE_MOCKUPS_ROW1 = [
-  createStandardPlaceholder('FLOWCHAIN AGENT ENGINE'),
-  createStandardPlaceholder('SHOPIFY INTENT ANALYTICS'),
-  createStandardPlaceholder('TABLEFLOW QR MENU'),
-  createStandardPlaceholder('SYNTERVIEW SECURITY CODE'),
-  createStandardPlaceholder('AI VOICE RECEPTIONIST'),
-  createStandardPlaceholder('ITR DOCUMENT PARSING'),
+const MARQUEE_LABELS_ROW1 = [
+  'FLOWCHAIN AGENT ENGINE',
+  'SHOPIFY INTENT ANALYTICS',
+  'TABLEFLOW QR MENU',
+  'SYNTERVIEW SECURITY CODE',
+  'AI VOICE RECEPTIONIST',
+  'ITR DOCUMENT PARSING',
 ];
 
-const MARQUEE_MOCKUPS_ROW2 = [
-  createStandardPlaceholder('LOCAL BUSINESS LEAD AI'),
-  createStandardPlaceholder('IDEMPOTENT EVENT AGGREGATION'),
-  createStandardPlaceholder('REALTIME KITCHEN DASHBOARD'),
-  createStandardPlaceholder('JWT ROTATION & LOCKOUT'),
-  createStandardPlaceholder('MULTILINGUAL CLINIC VOICE'),
-  createStandardPlaceholder('FLOWCHAIN ENTERPRISE SYSTEM'),
+const MARQUEE_LABELS_ROW2 = [
+  'LOCAL BUSINESS LEAD AI',
+  'IDEMPOTENT EVENT AGGREGATION',
+  'REALTIME KITCHEN DASHBOARD',
+  'JWT ROTATION & LOCKOUT',
+  'MULTILINGUAL CLINIC VOICE',
+  'FLOWCHAIN ENTERPRISE SYSTEM',
 ];
 
 export const MarqueeSection: React.FC = () => {
@@ -38,8 +38,8 @@ export const MarqueeSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const row1ImagesTripled = [...MARQUEE_MOCKUPS_ROW1, ...MARQUEE_MOCKUPS_ROW1, ...MARQUEE_MOCKUPS_ROW1];
-  const row2ImagesTripled = [...MARQUEE_MOCKUPS_ROW2, ...MARQUEE_MOCKUPS_ROW2, ...MARQUEE_MOCKUPS_ROW2];
+  const row1LabelsTripled = [...MARQUEE_LABELS_ROW1, ...MARQUEE_LABELS_ROW1, ...MARQUEE_LABELS_ROW1];
+  const row2LabelsTripled = [...MARQUEE_LABELS_ROW2, ...MARQUEE_LABELS_ROW2, ...MARQUEE_LABELS_ROW2];
 
   const row1Transform = `translateX(${scrollOffset - 200}px)`;
   const row2Transform = `translateX(${-(scrollOffset - 200)}px)`;
@@ -55,17 +55,12 @@ export const MarqueeSection: React.FC = () => {
           className="flex gap-3 w-max"
           style={{ transform: row1Transform, willChange: 'transform' }}
         >
-          {row1ImagesTripled.map((imgUrl, idx) => (
+          {row1LabelsTripled.map((label, idx) => (
             <div
               key={`r1-${idx}`}
-              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/15 shadow-xl transition-transform duration-500 hover:scale-105"
+              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:scale-105"
             >
-              <img
-                src={imgUrl}
-                alt={`System Placeholder ${idx}`}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
+              <ImagePlaceholder label={label} />
             </div>
           ))}
         </div>
@@ -75,17 +70,12 @@ export const MarqueeSection: React.FC = () => {
           className="flex gap-3 w-max"
           style={{ transform: row2Transform, willChange: 'transform' }}
         >
-          {row2ImagesTripled.map((imgUrl, idx) => (
+          {row2LabelsTripled.map((label, idx) => (
             <div
               key={`r2-${idx}`}
-              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden bg-neutral-900 border border-[#D7E2EA]/15 shadow-xl transition-transform duration-500 hover:scale-105"
+              className="w-[280px] sm:w-[360px] md:w-[420px] h-[170px] sm:h-[220px] md:h-[260px] flex-shrink-0 rounded-2xl overflow-hidden shadow-xl transition-transform duration-500 hover:scale-105"
             >
-              <img
-                src={imgUrl}
-                alt={`System Placeholder ${idx}`}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
+              <ImagePlaceholder label={label} />
             </div>
           ))}
         </div>
