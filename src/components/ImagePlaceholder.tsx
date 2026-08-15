@@ -28,11 +28,11 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <!-- Outer Box Frame -->
+        {/* Outer Box Frame */}
         <rect x="10" y="15" width="80" height="60" rx="12" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
-        <!-- Sun Circle -->
+        {/* Sun Circle */}
         <circle cx="68" cy="35" r="8" fill="currentColor"/>
-        <!-- Mountain Peaks -->
+        {/* Mountain Peaks */}
         <path d="M 18 68 L 45 38 L 60 55 L 72 43 L 82 68 Z" fill="currentColor"/>
       </svg>
 
